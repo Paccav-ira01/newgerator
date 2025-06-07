@@ -1,0 +1,32 @@
+name: Build Flutter APK
+
+on:
+  push:
+    branches: [ main ]  # ou o nome do seu branch principal
+  workflow_dispatch:     # permite rodar manualmente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter (latest stable)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK (debug)
+        run: flutter build apk --debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutterflow-debug-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
