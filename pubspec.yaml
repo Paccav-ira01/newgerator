@@ -23,8 +23,9 @@ dependencies:
   flutter_cache_manager: ^3.3.2
   font_awesome_flutter: ^10.7.0
   from_css_color: ^2.0.0
+  percent_indicator: ^4.2.2  # (verifique no pub.dev a versão mais recente)
   functions_client: ^2.3.2
-  go_router: ^13.1.0
+  go_router: ^10.1.2  # ou uma versão que você usava antes sem erro
   google_fonts: ^6.1.0
   gotrue: ^2.8.4
   hive: ^2.2.3
